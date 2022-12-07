@@ -1,0 +1,12 @@
+input:valid {
+  border: 1px solid lightseagreen
+}
+
+input:invalid {
+  border: 1px solid tomato
+}
+
+.hide{
+
+  display: none;
+}

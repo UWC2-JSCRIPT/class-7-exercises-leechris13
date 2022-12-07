@@ -44,7 +44,7 @@
           <input
             id="email"
             class="form-control validate-input"
-            type="email"
+            type="text"
             name="email"
           />
           <small class="error" aria-live="polite"></small>
@@ -60,6 +60,28 @@
             <option value="technical">I need technical support</option>
           </select>
           <small class="error" aria-live="polite"></small>
+        </div>
+
+        <div class="form-group business hide">
+          <label for="company-size"> Number of people in company</label>
+          <input 
+            id="company-size"
+            class="form-control validate-input"
+            type="number"
+            name="company-size"
+          />
+          <small class="error" aria-live="=polite"></small>
+        </div>
+
+        <div class="form-group technical hide">
+          <label for="support-size">What softwre are you using?</label>
+          <input 
+            id="suport-size"
+            class="form-control validate-input"
+            type="number"
+            name="support-size"
+          />
+          <small class="error" aria-live="=polite"></small>
         </div>
 
         <div class="form-check mb-3">
