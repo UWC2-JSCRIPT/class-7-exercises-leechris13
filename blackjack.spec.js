@@ -14,14 +14,45 @@ describe('Blackjack', ()=> {
         it('Dealer should draw on soft 17', function() {
             expect(dealerShouldDraw([ace, six])).toEqual(true)
         })
-        it('Dealer should stay on normal 17', function() {
-            expect(dealerShouldDraw([ten, seven])).toEqual(false)
+        it('Dealer should stay on normal 18 w/ Ace', function() {
+            expect(dealerShouldDraw([ten, seven, ace])).toEqual(false)
         })
         it('Dealer should draw on 14', function() {
             expect(dealerShouldDraw([two, four, six, two])).toEqual(true)
         })
-        it('Dealer should draw on soft Ace', function() {
-            expect(dealerShouldDraw([ace, ace, two])).toEqual(true)
+    })
+
+    describe('calPoints function', function() {
+        it('No aces should calc correctly', function() {
+            const expected = {
+                total: 19,
+                isSoft: false
+            }
+            expect(calcPoints([ten, nine])).toEqual(expected)
+        })
+
+        it('Soft ace should calc correctly', function() {
+            const expected = {
+                total: 17,
+                isSoft: true
+            }
+            expect(calcPoints([ace, six])).toEqual(expected)
+        })
+        it('Not soft ace should calc correctly', function() {
+            const expected = {
+                total: 22,
+                isSoft: false
+            }
+            expect(calcPoints([ten, two, ace, nine])).toEqual(expected)
+        })
+
+        it('Multiple aces / soft should calc correctly', function() {
+            const expected = {
+                total: 20,
+                isSoft: true
+            }
+            expect(calcPoints([ace, two, ace, six])).toEqual(expected)
         })
     })
+    //3121
 })
